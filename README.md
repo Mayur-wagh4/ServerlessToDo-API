@@ -1,92 +1,63 @@
-<!--
-title: 'AWS Simple HTTP Endpoint example in NodeJS'
-description: 'This template demonstrates how to make a simple HTTP API with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.'
-layout: Doc
-framework: v3
-platform: AWS
-language: nodeJS
-authorLink: 'https://github.com/serverless'
-authorName: 'Serverless, inc.'
-authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
--->
+# ServerlessToDo-API
 
-# Serverless Framework Node HTTP API on AWS
+## Overview
+ServerlessToDo-API is a **lightweight serverless application** built using **AWS Lambda, API Gateway, and the Serverless Framework**. This project provides a simple HTTP API to demonstrate **event-driven serverless architecture** with **scalability and cost efficiency**.
 
-This template demonstrates how to make a simple HTTP API with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.
+## Features
+- **Fully serverless** → No need for managing infrastructure.
+- **AWS Lambda & API Gateway** → Auto-scaled and event-driven backend.
+- **Fast Deployment** → Serverless Framework simplifies deployments.
+- **Local Development Support** → Run APIs locally using `serverless-offline`.
 
-This template does not include any kind of persistence (database). For more advanced examples, check out the [serverless/examples repository](https://github.com/serverless/examples/) which includes Typescript, Mongo, DynamoDB and other examples.
+## Installation & Deployment
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/Mayur-wagh4/ServerlessToDo-API.git
+cd ServerlessToDo-API
+```
+
+### 2️⃣ Install Serverless Framework
+```bash
+npm install -g serverless
+```
+
+### 3️⃣ Deploy to AWS
+```bash
+serverless deploy
+```
+
+### Deployment Output Example
+```bash
+Deploying serverless-todo-api to stage dev (us-east-1)
+✔ Service deployed to stack serverless-todo-api-dev (120s)
+
+endpoint: GET - https://xxxxxxx.execute-api.us-east-1.amazonaws.com/
+functions:
+  todo: serverless-todo-api-dev-todo (1.5 kB)
+```
 
 ## Usage
 
-### Deployment
-
-```
-$ serverless deploy
-```
-
-After deploying, you should see output similar to:
-
-```bash
-Deploying aws-node-http-api-project to stage dev (us-east-1)
-
-✔ Service deployed to stack aws-node-http-api-project-dev (152s)
-
-endpoint: GET - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/
-functions:
-  hello: aws-node-http-api-project-dev-hello (1.9 kB)
-```
-
-_Note_: In current form, after deployment, your API is public and can be invoked by anyone. For production deployments, you might want to configure an authorizer. For details on how to do that, refer to [http event docs](https://www.serverless.com/framework/docs/providers/aws/events/apigateway/).
-
-### Invocation
-
-After successful deployment, you can call the created application via HTTP:
-
+### 1️⃣ Invoke API via HTTP
 ```bash
 curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/
 ```
 
-Which should result in response similar to the following (removed `input` content for brevity):
-
-```json
-{
-  "message": "Go Serverless v2.0! Your function executed successfully!",
-  "input": {
-    ...
-  }
-}
-```
-
-### Local development
-
-You can invoke your function locally by using the following command:
-
+### 2️⃣ Invoke API Locally
 ```bash
-serverless invoke local --function hello
+serverless invoke local --function todo
 ```
 
-Which should result in response similar to the following:
-
-```
-{
-  "statusCode": 200,
-  "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
-}
-```
-
-
-Alternatively, it is also possible to emulate API Gateway and Lambda locally by using `serverless-offline` plugin. In order to do that, execute the following command:
-
+### 3️⃣ Run Local API Gateway with `serverless-offline`
 ```bash
 serverless plugin install -n serverless-offline
-```
-
-It will add the `serverless-offline` plugin to `devDependencies` in `package.json` file as well as will add it to `plugins` in `serverless.yml`.
-
-After installation, you can start local emulation with:
-
-```
 serverless offline
 ```
 
-To learn more about the capabilities of `serverless-offline`, please refer to its [GitHub repository](https://github.com/dherault/serverless-offline).
+## Contribution
+Contributions are welcome! Fork the repository, make your improvements, and submit a pull request.
+
+## License
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
